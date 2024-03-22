@@ -7,9 +7,18 @@
 batch := tcpbatch.NewTCPBatch(TCPConn)
 
 // replace
-TCPConn.Write(buf)
+TCPConn.Write(buf1)
+TCPConn.Write(buf2)
+...
+TCPConn.Write(bufn)
+
 // to
-batch.WriteBuffer(buf)
+batch.WriteBuffer(buf1)
+batch.WriteBuffer(buf2)
+batch.WriteBuffer(buf3)
+...
+batch.WriteBuffer(bufn)
+// max size 1024
 n, err := batch.Submit(nil)
 ```
 
